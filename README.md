@@ -1,4 +1,4 @@
-# fluent-attacker-rpm
+# fluent-attacker-rps
 
 ## 概要
 
@@ -8,7 +8,7 @@
 
 ## 使用方法
 
-go run fluent-attacker-rpm.go
+go run fluent-attacker-rps.go
 
 ## オプション
 
