@@ -63,7 +63,7 @@ func calcInt(x int) int64 {
 func main() {
 
 	// flag処理
-	flag.StringVar(&fluentHost, "h","192.168.0.244","Fluentd-Server Address")
+	flag.StringVar(&fluentHost, "h","127.0.0.1","Fluentd-Server Address")
 	flag.IntVar(&fluentPort, "p",24224,"Fluentd-Port Address")
 	flag.StringVar(&fluentTag, "t","test.tag","Fluentd Tag")
 	flag.IntVar(&key, "c",3000,"Fluentd TestData Post Count")
