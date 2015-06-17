@@ -63,11 +63,11 @@ func calcInt(x int) int64 {
 func main() {
 
 	// flag処理
-	flag.StringVar(&fluentHost, "h","127.0.0.1","Fluentd-Server Address")
-	flag.IntVar(&fluentPort, "p",24224,"Fluentd-Port Address")
+	flag.StringVar(&fluentHost, "h","127.0.0.1","Fluentd-Server IP Address")
+	flag.IntVar(&fluentPort, "p",24224,"Fluentd-Server Port Address")
 	flag.StringVar(&fluentTag, "t","test.tag","Fluentd Tag")
 	flag.IntVar(&key, "c",3000,"Fluentd TestData Post Count")
-	flag.IntVar(&val, "l",1000,"Fluentd Message Length")
+	flag.IntVar(&val, "l",1000,"Fluentd TestData Message Length")
 	flag.IntVar(&rps, "r",300,"Request Per Second")
 
 	// いつものおまじない
@@ -167,15 +167,12 @@ func postFluent(k, v int) {
 
 	var data = map[string]string{
 		"ID": strconv.Itoa(k),
-		keys: vals,
+		"md5": keys,
+		"strings": vals,
 	}
 
 	error := logger.Post(fluentTag, data)
 	if error != nil {
 		panic(error)
 	}
-
-//	if k%rps == 0 {
-//		fmt.Printf("%d loop - Post Done.\n",k)
-//	}
 }
